@@ -181,7 +181,7 @@ export const WhoamiPane: React.FC<WhoamiPaneProps> = ({ onNavigate }) => {
                   <Mail className="w-3.5 h-3.5 text-om-pink" />
                   <span>Email:</span>
                 </span>
-                <span className="text-om-fg font-medium truncate max-w-[190px]">
+                <span className="text-om-fg font-medium truncate max-w-47.5">
                   {PROFILE_DATA.contacts.email}
                 </span>
               </div>

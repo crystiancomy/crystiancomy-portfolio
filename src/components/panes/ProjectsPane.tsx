@@ -86,7 +86,7 @@ export const ProjectsPane: React.FC = () => {
 
               <div className="flex items-center gap-2 bg-om-bg border border-om-border-subtle px-3 py-1.5 rounded-xs text-xs font-mono self-start sm:self-auto">
                 <span className="text-om-green font-bold">$</span>
-                <span className="text-om-cyan truncate max-w-[200px] sm:max-w-[280px]">
+                <span className="text-om-cyan truncate max-w-50 sm:max-w-70">
                   {project.command}
                 </span>
                 <button
