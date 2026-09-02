@@ -72,7 +72,7 @@ export const TuiHeader: React.FC<TuiHeaderProps> = ({
 
       {/* Terminal Prompt Line */}
       <div className="flex items-center gap-2 font-mono text-sm mb-3">
-        <span className="text-om-green font-semibold">crystian@portfolio</span>
+        <span className="text-om-green font-semibold">crystiancomy@portfolio</span>
         <span className="text-om-lilac">:</span>
         <span className="text-om-cyan">~</span>
         <span className="text-om-fg">$</span>

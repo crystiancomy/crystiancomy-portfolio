@@ -43,7 +43,7 @@ export const TuiFrame: React.FC<TuiFrameProps> = ({
 
           {/* Center: Window Title */}
           <div className="text-xs font-semibold text-om-fg flex items-center gap-2 truncate px-2">
-            <span className="text-om-lilac">crystian@portfolio</span>
+            <span className="text-om-lilac">crystiancomy@portfolio</span>
             <span className="text-om-muted">:</span>
             <span className="text-om-cyan">~/{activePane}</span>
           </div>

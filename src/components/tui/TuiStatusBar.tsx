@@ -35,7 +35,7 @@ export const TuiStatusBar: React.FC<TuiStatusBarProps> = ({
       {/* Left: Active Session */}
       <div className="flex items-center gap-2 text-om-muted">
         <Terminal className="w-3.5 h-3.5 text-om-cyan" />
-        <span className="text-om-fg/90">crystian@portfolio</span>
+        <span className="text-om-fg/90">crystiancomy@portfolio</span>
         <span className="text-om-dim">:</span>
         <span className="text-om-lilac font-medium uppercase">
           /{activePane}
