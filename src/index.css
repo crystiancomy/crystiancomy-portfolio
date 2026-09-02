@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --color-om-bg: #141218;
+  --color-om-surface: #191722;
+  --color-om-card: #201d2c;
+  --color-om-border: #342e47;
+  --color-om-border-subtle: #242033;
+  --color-om-border-active: #bd93f9;
+
+  --color-om-purple-primary: #712d76;
+  --color-om-purple-glow: rgba(113, 45, 118, 0.4);
+  --color-om-lilac: #bd93f9;
+  --color-om-cyan: #8be9fd;
+  --color-om-green: #50fa7b;
+  --color-om-yellow: #f1fa8c;
+  --color-om-red: #ff5555;
+  --color-om-pink: #ff79c6;
+  --color-om-orange: #ffb86c;
+
+  --color-om-fg: #f8f8f2;
+  --color-om-muted: #6272a4;
+  --color-om-dim: #44475a;
+}
+
+@layer base {
+  html, body {
+    background-color: #141218;
+    color: #f8f8f2;
+    font-family: var(--font-mono);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Custom terminal scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #141218;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #342e47;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #712d76;
+  }
+}
+
+/* Retro cursor blink animation */
+@keyframes cursor-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.animate-cursor-blink {
+  animation: cursor-blink 1s infinite;
+}
+
+/* Subtle CRT scanline effect (non-intrusive, fully accessible) */
+.tui-scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 24, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.015),
+    rgba(0, 255, 0, 0.005),
+    rgba(0, 0, 255, 0.015)
+  );
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
