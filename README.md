@@ -1,6 +1,6 @@
 <div align="center">
 
-```
+```text
    ____                _   _              ____             __   __
   / ___|_ __ _   _ ___| |_(_) __ _ _ __  / ___|___  _ __ __\ \ / /
  | |   | '__| | | / __| __| |/ _` | '_ \| |   / _ \| '_ ` _ \ V / 
@@ -10,7 +10,8 @@
 ```
 
 # Crystian Fernando Lopes de Oliveira
-### Full-Stack Developer & DevOps Enthusiast · [@crystiancomy](https://github.com/crystiancomy)
+
+## Full-Stack Developer & DevOps Enthusiast · [@crystiancomy](https://github.com/crystiancomy)
 
 [![React 19](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -27,7 +28,7 @@
 
 ## 💻 About The Project
 
-A high-performance, accessible **Terminal User Interface (TUI)** portfolio built with **React 19**, **TypeScript**, and **Tailwind CSS v4**. 
+A high-performance, accessible **Terminal User Interface (TUI)** portfolio built with **React 19**, **TypeScript**, and **Tailwind CSS v4**.
 
 Designed around the **Om Theme** (a darker, refined Dracula palette with `#712D76` accents), this portfolio delivers an authentic retro terminal experience with modern web ergonomics—providing instant keyboard navigation, bidirectional URL hash synchronization, bilingual internationalization (PT/EN), and strict adherence to WCAG AA accessibility standards.
 
