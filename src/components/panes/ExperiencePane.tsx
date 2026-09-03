@@ -36,7 +36,7 @@ export const ExperiencePane: React.FC = () => {
         {TECH_EXPERIENCE_DATA.map((exp) => (
           <article
             key={exp.id}
-            className="relative pl-6 sm:pl-8 border-l-2 border-om-purple-primary space-y-4 bg-om-surface p-6 rounded-r-sm border border-y-om-border border-r-om-border font-mono text-xs shadow-[0_4px_20px_rgba(0,0,0,0.25)]"
+            className="relative pl-5 sm:pl-8 border-l-2 border-om-purple-primary space-y-4 bg-om-surface p-4 sm:p-6 rounded-r-sm border border-y-om-border border-r-om-border font-mono text-xs shadow-[0_4px_20px_rgba(0,0,0,0.25)]"
           >
             {/* Timeline bullet dot */}
             <div className="absolute -left-2.25 top-6 w-4 h-4 rounded-full bg-om-bg border-2 border-om-lilac flex items-center justify-center">
@@ -104,16 +104,16 @@ export const ExperiencePane: React.FC = () => {
 
       {/* Experiências Profissionais Pré-Dev */}
       <div className="space-y-4 pt-2 font-mono">
-        <div className="flex items-center justify-between border-b border-om-border-subtle pb-2">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-om-border-subtle pb-2 gap-2">
           <div className="flex items-center gap-2 text-xs text-om-cyan uppercase tracking-wider font-semibold">
-            <Briefcase className="w-4 h-4 text-om-lilac" />
+            <Briefcase className="w-4 h-4 text-om-lilac shrink-0" />
             <span>{t.experience.preDevExpTitle}</span>
           </div>
           <button
             onClick={() => setShowPreDev(!showPreDev)}
-            className="flex items-center gap-1 text-xs text-om-muted hover:text-om-fg transition-colors"
+            className="flex items-center gap-1 text-xs text-om-muted hover:text-om-fg transition-colors self-end sm:self-auto shrink-0 whitespace-nowrap"
           >
-            <span>{showPreDev ? '[ Recolher ]' : '[ Expandir ]'}</span>
+            <span>{showPreDev ? (language === 'pt' ? '[ Recolher ]' : '[ Collapse ]') : (language === 'pt' ? '[ Expandir ]' : '[ Expand ]')}</span>
             {showPreDev ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
           </button>
         </div>
@@ -207,10 +207,6 @@ export const ExperiencePane: React.FC = () => {
                 )}
               </div>
             ))}
-          </div>
-
-          <div className="p-3 bg-om-bg border border-om-border-subtle rounded-xs text-om-muted text-[11px] leading-relaxed">
-            {t.experience.langNote}
           </div>
         </div>
       </div>

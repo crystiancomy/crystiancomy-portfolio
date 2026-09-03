@@ -98,17 +98,6 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
             </div>
           </div>
         </div>
-
-        {/* Footer info */}
-        <div className="border-t border-om-border pt-3 text-xs text-om-muted flex items-center justify-between">
-          <span>Om Theme · Accessible TUI</span>
-          <button
-            onClick={onClose}
-            className="px-3 py-1 bg-om-purple-primary hover:bg-[#8b3691] text-om-fg rounded-xs transition-colors font-medium"
-          >
-            [ {t.footer.closeModal} ]
-          </button>
-        </div>
       </div>
     </div>
   );

@@ -94,13 +94,13 @@ export const ContactPane: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Column: Interactive TUI Form */}
-        <div className="lg:col-span-7 bg-om-surface border border-om-border p-6 rounded-sm space-y-5 shadow-[0_4px_25px_rgba(0,0,0,0.3)] font-mono text-xs">
-          <div className="flex items-center justify-between border-b border-om-border-subtle pb-3">
+        <div className="lg:col-span-7 bg-om-surface border border-om-border p-4 sm:p-6 rounded-sm space-y-5 shadow-[0_4px_25px_rgba(0,0,0,0.3)] font-mono text-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-om-border-subtle pb-3 gap-1">
             <span className="text-om-cyan flex items-center gap-2 font-bold text-sm">
-              <Terminal className="w-4 h-4" />
+              <Terminal className="w-4 h-4 shrink-0" />
               <span>{t.contact.formTitle}</span>
             </span>
-            <span className="text-om-green text-[11px] font-semibold">{t.contact.encrypted}</span>
+            <span className="text-om-green text-[11px] font-semibold tracking-wider whitespace-nowrap self-start sm:self-auto">{t.contact.encrypted}</span>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">

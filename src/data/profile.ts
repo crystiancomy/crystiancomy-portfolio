@@ -31,16 +31,16 @@ export const PROFILE_DATA: ProfileData = {
   fullName: "Crystian Fernando Lopes de Oliveira",
   handle: "@crystiancomy",
   title: {
-    pt: "Desenvolvedor Backend & DevOps",
-    en: "Backend & DevOps Engineer"
+    pt: "Desenvolvedor Full-Stack & DevOps",
+    en: "Full-Stack Developer & DevOps"
   },
   summary: {
-    pt: "Desenvolvedor Backend e entusiasta de DevOps com sólida base prática na criação de APIs RESTful, sistemas distribuídos e infraestrutura Linux conteinerizada.",
-    en: "Backend Developer and DevOps enthusiast with hands-on expertise building RESTful APIs, distributed systems, and containerized Linux infrastructure."
+    pt: "Desenvolvedor Full-Stack e entusiasta de DevOps com sólida base prática na criação de APIs RESTful, sistemas distribuídos e infraestrutura Linux conteinerizada.",
+    en: "Full-Stack Developer and DevOps enthusiast with hands-on expertise building RESTful APIs, distributed systems, and containerized Linux infrastructure."
   },
   bio: {
     pt: [
-      "Desenvolvedor Backend e entusiasta de DevOps com sólida base prática na criação de APIs RESTful, sistemas distribuídos e infraestrutura Linux conteinerizada.",
+      "Desenvolvedor Full-Stack e entusiasta de DevOps com sólida base prática na criação de APIs RESTful, sistemas distribuídos e infraestrutura Linux conteinerizada.",
       "Especialista no ecossistema TypeScript/Node.js (NestJS) e Python, com domínio de bancos relacionais, sistemas de mensageria/filas e gerência de redes privadas self-hosted.",
       "Fluente em Inglês (C1 - EF SET Certified), focado em arquitetura modular, código limpo e alta performance."
     ],

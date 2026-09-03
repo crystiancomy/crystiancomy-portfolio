@@ -33,15 +33,11 @@ export const WhoamiPane: React.FC<WhoamiPaneProps> = ({ onNavigate }) => {
   return (
     <section aria-labelledby="whoami-heading" className="space-y-8 max-w-5xl mx-auto py-2">
       {/* Top Banner: Monospace Identity */}
-      <div className="bg-om-surface border border-om-border p-6 sm:p-8 rounded-sm shadow-[0_0_30px_rgba(113,45,118,0.15)] space-y-6">
+      <div className="bg-om-surface border border-om-border p-4 sm:p-8 rounded-sm shadow-[0_0_30px_rgba(113,45,118,0.15)] space-y-6">
         <div className="flex items-center justify-between border-b border-om-border-subtle pb-3 text-xs text-om-muted">
           <span className="flex items-center gap-2 text-om-cyan font-bold">
             <Terminal className="w-4 h-4" />
             <span>{t.whoami.asciiTitle}</span>
-          </span>
-          <span className="text-om-green flex items-center gap-1.5 font-semibold">
-            <span className="w-2 h-2 rounded-full bg-om-green animate-pulse"></span>
-            {t.header.status}
           </span>
         </div>
 
@@ -84,10 +80,10 @@ export const WhoamiPane: React.FC<WhoamiPaneProps> = ({ onNavigate }) => {
       {/* Professional Summary & Credentials Grid */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
         {/* Left: Resumo Profissional */}
-        <div className="md:col-span-7 bg-om-surface border border-om-border p-6 rounded-sm space-y-4">
-          <div className="flex items-center justify-between border-b border-om-border-subtle pb-2 text-xs text-om-muted">
+        <div className="md:col-span-7 bg-om-surface border border-om-border p-4 sm:p-6 rounded-sm space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-om-border-subtle pb-2 text-xs text-om-muted gap-1.5">
             <span className="text-om-lilac font-semibold uppercase tracking-wider">{t.whoami.resumoTitle}</span>
-            <span>{t.whoami.resumoSubtitle}</span>
+            <span className="text-om-fg/70 text-[11px] sm:text-xs">{t.whoami.resumoSubtitle}</span>
           </div>
 
           <div className="space-y-3.5 text-xs sm:text-sm text-om-fg/90 leading-relaxed font-mono">

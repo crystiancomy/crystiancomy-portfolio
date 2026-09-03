@@ -21,13 +21,17 @@ export const TuiHeader: React.FC<TuiHeaderProps> = ({
   return (
     <header className="border-b border-om-border bg-om-surface/90 backdrop-blur-sm px-4 py-3 select-none">
       {/* Terminal Prompt Line */}
-      <div className="flex items-center gap-2 font-mono text-sm mb-3">
-        <span className="text-om-green font-semibold">crystiancomy@portfolio</span>
-        <span className="text-om-lilac">:</span>
-        <span className="text-om-cyan">~</span>
-        <span className="text-om-fg">$</span>
-        <span className="text-om-fg font-medium">{lastCommand}</span>
-        <span className="inline-block w-2.5 h-4 bg-om-cyan animate-cursor-blink ml-0.5"></span>
+      <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 font-mono text-xs sm:text-sm mb-3">
+        <div className="flex items-center gap-1 shrink-0">
+          <span className="text-om-green font-semibold">crystiancomy@portfolio</span>
+          <span className="text-om-lilac">:</span>
+          <span className="text-om-cyan">~</span>
+        </div>
+        <div className="flex items-center gap-1.5 flex-wrap">
+          <span className="text-om-fg font-bold">$</span>
+          <span className="text-om-fg font-medium">{lastCommand}</span>
+          <span className="inline-block w-2 sm:w-2.5 h-3.5 sm:h-4 bg-om-cyan animate-cursor-blink ml-0.5"></span>
+        </div>
       </div>
 
       {/* TUI Navigation Tabs */}

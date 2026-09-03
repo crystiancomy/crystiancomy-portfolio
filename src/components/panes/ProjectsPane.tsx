@@ -64,7 +64,7 @@ export const ProjectsPane: React.FC = () => {
         {filteredProjects.map((project: ShowcaseItem) => (
           <article
             key={project.id}
-            className="bg-om-surface border border-om-border hover:border-om-lilac/70 rounded-sm p-6 space-y-5 transition-all duration-150 shadow-[0_4px_25px_rgba(0,0,0,0.25)]"
+            className="bg-om-surface border border-om-border hover:border-om-lilac/70 rounded-sm p-4 sm:p-6 space-y-5 transition-all duration-150 shadow-[0_4px_25px_rgba(0,0,0,0.25)]"
           >
             {/* Header: Title, Subtitle, and Clone Command */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-om-border-subtle pb-3">
@@ -84,14 +84,16 @@ export const ProjectsPane: React.FC = () => {
                 </p>
               </div>
 
-              <div className="flex items-center gap-2 bg-om-bg border border-om-border-subtle px-3 py-1.5 rounded-xs text-xs font-mono self-start sm:self-auto">
-                <span className="text-om-green font-bold">$</span>
-                <span className="text-om-cyan truncate max-w-50 sm:max-w-70">
-                  {project.command}
-                </span>
+              <div className="w-full sm:w-auto flex items-center justify-between sm:justify-start gap-2 bg-om-bg border border-om-border-subtle px-2.5 py-1.5 rounded-xs text-xs font-mono max-w-full overflow-hidden">
+                <div className="flex items-center gap-1.5 min-w-0 overflow-hidden flex-1">
+                  <span className="text-om-green font-bold shrink-0">$</span>
+                  <span className="text-om-cyan truncate text-[11px] sm:text-xs">
+                    {project.command}
+                  </span>
+                </div>
                 <button
                   onClick={() => handleCopy(project.command, project.id)}
-                  className="text-om-muted hover:text-om-lilac ml-1 transition-colors"
+                  className="text-om-muted hover:text-om-lilac ml-1 transition-colors shrink-0"
                   title={t.projects.copyCommand}
                   aria-label={`${t.projects.copyCommand} ${project.title}`}
                 >

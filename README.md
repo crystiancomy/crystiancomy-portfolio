@@ -10,7 +10,7 @@
 ```
 
 # Crystian Fernando Lopes de Oliveira
-### Backend Developer & DevOps Enthusiast · [@crystiancomy](https://github.com/crystiancomy)
+### Full-Stack Developer & DevOps Enthusiast · [@crystiancomy](https://github.com/crystiancomy)
 
 [![React 19](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
