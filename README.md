@@ -19,7 +19,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg?style=flat-square)](LICENSE)
 [![English C1](https://img.shields.io/badge/English-C1_Certified_(EF_SET)-50FA7B?style=flat-square)](https://www.efset.org/)
 
-[Live Portfolio](https://crystiancomy.vercel.app) · [Report Bug](https://github.com/crystiancomy/portfolio/issues) · [LinkedIn](https://www.linkedin.com/in/crystian-fernando-lopes-de-oliveira-8a9077200/?locale=en)
+[Live Portfolio](https://crystiancomy.dev) · [Report Bug](https://github.com/crystiancomy/portfolio/issues) · [LinkedIn](https://www.linkedin.com/in/crystian-fernando-lopes-de-oliveira-8a9077200/?locale=en)
 
 </div>
 
