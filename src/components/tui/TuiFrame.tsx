@@ -1,5 +1,6 @@
 import React from 'react';
 import type { PaneId } from '../../hooks/useTuiNavigation';
+import { useLanguage } from '../../context/LanguageContext';
 import { TuiHeader } from './TuiHeader';
 import { TuiStatusBar } from './TuiStatusBar';
 import { HelpModal } from './HelpModal';
@@ -23,6 +24,8 @@ export const TuiFrame: React.FC<TuiFrameProps> = ({
   onToggleHelp,
   children
 }) => {
+  const { language, setLanguage } = useLanguage();
+
   return (
     <div className="min-h-screen bg-om-bg text-om-fg flex flex-col justify-between selection:bg-om-purple-primary selection:text-om-fg font-mono relative">
       {/* Outer TUI Window Container */}
@@ -48,8 +51,40 @@ export const TuiFrame: React.FC<TuiFrameProps> = ({
             <span className="text-om-cyan">~/{activePane}</span>
           </div>
 
-          {/* Right: Actions */}
-          <div className="flex items-center gap-2.5 text-xs text-om-muted">
+          {/* Right: Language Switcher & Actions */}
+          <div className="flex items-center gap-2 text-xs text-om-muted">
+            {/* Language Switcher [ PT | EN ] */}
+            <div className="flex items-center gap-1 font-mono text-[11px]">
+              <button
+                onClick={() => setLanguage('pt')}
+                className={`px-1.5 py-0.5 rounded-xs transition-all ${
+                  language === 'pt'
+                    ? 'bg-om-purple-primary text-om-fg font-bold border border-om-lilac shadow-[0_0_8px_rgba(113,45,118,0.5)]'
+                    : 'text-om-muted hover:text-om-fg'
+                }`}
+                title="Mudar para Português"
+                aria-label="Português"
+              >
+                PT
+              </button>
+              <span className="text-om-dim">/</span>
+              <button
+                onClick={() => setLanguage('en')}
+                className={`px-1.5 py-0.5 rounded-xs transition-all ${
+                  language === 'en'
+                    ? 'bg-om-purple-primary text-om-fg font-bold border border-om-lilac shadow-[0_0_8px_rgba(113,45,118,0.5)]'
+                    : 'text-om-muted hover:text-om-fg'
+                }`}
+                title="Switch to English"
+                aria-label="English"
+              >
+                EN
+              </button>
+            </div>
+
+            <span className="text-om-dim">|</span>
+
+            {/* GitHub Link */}
             <a
               href={PROFILE_DATA.contacts.github}
               target="_blank"

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PROFILE_DATA } from '../../data/profile';
 import { useLanguage } from '../../context/LanguageContext';
 import { UI_TRANSLATIONS } from '../../i18n/translations';
-import { Mail, Send, Terminal, Check, ExternalLink, Phone, MapPin } from 'lucide-react';
+import { Mail, Send, Terminal, Check, ExternalLink, Phone, MapPin, AlertCircle } from 'lucide-react';
 
 export const ContactPane: React.FC = () => {
   const { language } = useLanguage();
@@ -31,25 +31,52 @@ export const ContactPane: React.FC = () => {
     if (!name || !email || !message) return;
 
     setStatus('sending');
+    const startTime = Date.now();
     setLogs(prev => [
       ...prev,
       t.contact.logConnecting,
       `${t.contact.logEncrypting} <${PROFILE_DATA.contacts.email}>...`
     ]);
 
-    // Async simulated/serverless dispatch
-    setTimeout(() => {
-      setStatus('success');
+    try {
+      const formData = new FormData();
+      formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "cd243901-f22d-4a63-825d-30ec1b6a34ba");
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("subject", subject || `Portfolio Inquiry from ${name}`);
+      formData.append("message", message);
+      formData.append("from_name", "Portfolio TUI (@crystiancomy)");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+      const latency = Date.now() - startTime;
+
+      if (data.success) {
+        setStatus('success');
+        setLogs(prev => [
+          ...prev,
+          `[200 OK] ${language === 'pt' ? 'Mensagem despachada com sucesso!' : 'Message dispatched successfully!'} (${latency}ms)`,
+          t.contact.logResponse
+        ]);
+        setName('');
+        setEmail('');
+        setSubject('');
+        setMessage('');
+      } else {
+        throw new Error(data.message || "Falha na resposta do servidor");
+      }
+    } catch (err) {
+      setStatus('error');
       setLogs(prev => [
         ...prev,
-        t.contact.logSuccess,
-        t.contact.logResponse
+        `[ERROR] ${err instanceof Error ? err.message : 'Falha na transmissão'}.`,
+        `[FALLBACK] ${language === 'pt' ? 'Você também pode enviar diretamente para' : 'You can also send directly to'} ${PROFILE_DATA.contacts.email}`
       ]);
-      setName('');
-      setEmail('');
-      setSubject('');
-      setMessage('');
-    }, 1100);
+    }
   };
 
   return (
@@ -83,6 +110,7 @@ export const ContactPane: React.FC = () => {
               </label>
               <input
                 id="input-name"
+                name="name"
                 type="text"
                 required
                 value={name}
@@ -98,6 +126,7 @@ export const ContactPane: React.FC = () => {
               </label>
               <input
                 id="input-email"
+                name="email"
                 type="email"
                 required
                 value={email}
@@ -113,6 +142,7 @@ export const ContactPane: React.FC = () => {
               </label>
               <input
                 id="input-subject"
+                name="subject"
                 type="text"
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
@@ -127,6 +157,7 @@ export const ContactPane: React.FC = () => {
               </label>
               <textarea
                 id="input-message"
+                name="message"
                 required
                 rows={5}
                 value={message}
@@ -135,6 +166,20 @@ export const ContactPane: React.FC = () => {
                 className="w-full bg-om-bg border border-om-border focus:outline-none focus:ring-1 focus:ring-om-lilac p-2.5 rounded-xs placeholder:text-om-muted/50 transition-colors resize-none leading-relaxed"
               />
             </div>
+
+            {status === 'success' && (
+              <div className="p-3 bg-om-green/10 border border-om-green text-om-green rounded-xs flex items-center gap-2 text-xs">
+                <Check className="w-4 h-4 shrink-0" />
+                <span>{language === 'pt' ? 'Mensagem transmitida com sucesso!' : 'Message transmitted successfully!'}</span>
+              </div>
+            )}
+
+            {status === 'error' && (
+              <div className="p-3 bg-om-red/10 border border-om-red text-om-red rounded-xs flex items-center gap-2 text-xs">
+                <AlertCircle className="w-4 h-4 shrink-0" />
+                <span>{language === 'pt' ? 'Erro no envio. Tente novamente ou use o email direto.' : 'Dispatch error. Please try again or email directly.'}</span>
+              </div>
+            )}
 
             <button
               type="submit"

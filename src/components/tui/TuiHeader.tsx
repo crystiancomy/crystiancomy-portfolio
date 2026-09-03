@@ -1,10 +1,8 @@
 import React from 'react';
 import { PANES } from '../../hooks/useTuiNavigation';
 import type { PaneId } from '../../hooks/useTuiNavigation';
-import { PROFILE_DATA } from '../../data/profile';
 import { useLanguage } from '../../context/LanguageContext';
 import { UI_TRANSLATIONS } from '../../i18n/translations';
-import { MapPin, Languages } from 'lucide-react';
 
 interface TuiHeaderProps {
   activePane: PaneId;
@@ -17,59 +15,11 @@ export const TuiHeader: React.FC<TuiHeaderProps> = ({
   onSelectPane,
   lastCommand
 }) => {
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
   const t = UI_TRANSLATIONS[language];
 
   return (
     <header className="border-b border-om-border bg-om-surface/90 backdrop-blur-sm px-4 py-3 select-none">
-      {/* Top Telemetry & Controls Bar */}
-      <div className="flex items-center justify-between text-xs text-om-muted mb-3 pb-2 border-b border-om-border-subtle gap-2">
-        <div className="flex items-center gap-3">
-          <span className="flex items-center gap-1.5 text-om-green">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-om-green opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-om-green"></span>
-            </span>
-            <span className="font-semibold">{t.header.status}</span>
-          </span>
-          <span className="hidden sm:inline text-om-dim">|</span>
-          <span className="hidden sm:flex items-center gap-1 text-om-cyan">
-            <MapPin className="w-3.5 h-3.5" />
-            <span>{PROFILE_DATA.telemetry.location[language]}</span>
-          </span>
-        </div>
-
-        {/* Language Switcher [ PT | EN ] */}
-        <div className="flex items-center gap-1.5 font-mono text-xs">
-          <Languages className="w-3.5 h-3.5 text-om-lilac mr-1 hidden sm:inline" />
-          <button
-            onClick={() => setLanguage('pt')}
-            className={`px-2 py-0.5 rounded-xs transition-all ${
-              language === 'pt'
-                ? 'bg-om-purple-primary text-om-fg font-bold border border-om-lilac shadow-[0_0_8px_rgba(113,45,118,0.5)]'
-                : 'text-om-muted hover:text-om-fg'
-            }`}
-            title="Mudar para Português"
-            aria-label="Português"
-          >
-            PT
-          </button>
-          <span className="text-om-dim">/</span>
-          <button
-            onClick={() => setLanguage('en')}
-            className={`px-2 py-0.5 rounded-xs transition-all ${
-              language === 'en'
-                ? 'bg-om-purple-primary text-om-fg font-bold border border-om-lilac shadow-[0_0_8px_rgba(113,45,118,0.5)]'
-                : 'text-om-muted hover:text-om-fg'
-            }`}
-            title="Switch to English"
-            aria-label="English"
-          >
-            EN
-          </button>
-        </div>
-      </div>
-
       {/* Terminal Prompt Line */}
       <div className="flex items-center gap-2 font-mono text-sm mb-3">
         <span className="text-om-green font-semibold">crystiancomy@portfolio</span>
